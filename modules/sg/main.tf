@@ -1,3 +1,4 @@
+#Create security group for rancher nodes
 resource "aws_security_group" "rancher-sg" {
   name        = "${var.sg_name}"
   description = "Allow inbound traffic inside the rancher cluster"
