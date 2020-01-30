@@ -22,5 +22,5 @@ variable "subnets" {
 variable "user_data_file" {
   type = string
   description = "User data to install rancher in HA"
-  default = "scripts/test.sh"
+  default = "scripts/user_data.tpl"
 }
