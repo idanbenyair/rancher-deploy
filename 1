@@ -11,7 +11,6 @@ module "rancher-sg" {
 
 module "rancher-elb" {
   source        = "./modules/elb/"
-  elb_name = "rancher-elb"
 }
 
 #resource "aws_placement_group" "ranch-placement" {
@@ -64,9 +63,8 @@ resource "aws_autoscaling_group" "rancher-ha" {
 #  }
   }
 
-}
-
 resource "aws_autoscaling_attachment" "rancher-ha-elb-attach" {
   autoscaling_group_name = "${aws_autoscaling_group.rancher-ha.id}"
-  elb = "${module.rancher-elb.elb-name}"
+  elb = "${aws_elb.rancher-elb.id}"
+}
 }
