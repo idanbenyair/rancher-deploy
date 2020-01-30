@@ -27,8 +27,7 @@ resource "aws_autoscaling_group" "rancher-ha" {
   force_delete              = true
 #  placement_group           = "${aws_placement_group.ranch-placement.id}"
 #  launch_configuration      = "${aws_launch_template.rancher-launch-config.name}"
-#  vpc_zone_identifier       = ["${aws_subnet.example1.id}", "${aws_subnet.example2.id}"]
-  vpc_zone_identifier       = ["subnet-06205a09", "subnet-0cfe7350"]
+  vpc_zone_identifier       = ["${aws_subnet.example1.id}", "${aws_subnet.example2.id}"]
 
   launch_template {
     id      = "${aws_launch_template.rancher-launch-config.id}"
