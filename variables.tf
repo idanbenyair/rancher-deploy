@@ -3,8 +3,8 @@ variable "aws_access_keys" {
   description = "AWS Access Keys for terraform deployment"
 
   default = {
-      access_key = "AKIA3AWHOUMW7HDZQR3U"
-      secret_key = "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"
+      access_key = ""
+      secret_key = ""
       region = "us-east-1"
   }
 }
