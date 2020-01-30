@@ -20,7 +20,7 @@ module "rancher-elb" {
 #Create launch configuration for autoscaling group
 resource "aws_launch_configuration" "rancher-launch-config" {
   name_prefix   = "rancher-launch-config"
-  image_id      = "ami-025ed45832b817a35"
+  image_id      = "ami-04763b3055de4860b"
   instance_type = "t2.large"
   user_data = "${base64encode(file("${var.user_data_file}"))}"
   key_name = "k8s-test"

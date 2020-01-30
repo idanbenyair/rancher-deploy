@@ -1,7 +1,7 @@
 #Create elb for rancher nodes
 resource "aws_elb" "rancher-elb" {
   name               = "${var.elb_name}"
-  availability_zones = ["us-east-1a", "us-east-1b", "us-east-1c"]
+  availability_zones = ["us-east-1a", "us-east-1b", "us-east-1c", "us-east-1d", "us-east-1e", "us-east-1f"]
 
   listener {
     instance_port     = 80

@@ -5,6 +5,8 @@ sudo apt-get update -y
 sudo apt install docker.io -y
 usermod -aG docker ubuntu
 
+sudo apt install nginx -y
+
 #Generate ssh keys
 #ssh-keygen -b 2048 -t rsa -f /home/ubuntu/.ssh/id_rsa -N ""
 #cat /home/ubuntu/.ssh/id_rsa.pub /home/ubuntu/.ssh/authorized_keys
@@ -26,6 +28,11 @@ ln -s /home/ubuntu/kube_config_rancher-cluster.yml /home/ubuntu/.kube/config
 
 #Export path
 export KUBECONFIG=/home/ubuntu/kube_config_rancher-cluster.yml
+
+#Install helm https://helm.sh/docs/intro/install/
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+chmod 700 get_helm.sh
+./get_helm.sh
 
 #Create cluster.yml file
 cat  <<'EOF'> /home/ubuntu/rancher-cluster.yml
@@ -50,11 +57,6 @@ EOF
 
 #RKE Up to build the cluster
 #sudo sudo rke up --config rancher-cluster.yml
-
-#Install helm https://helm.sh/docs/intro/install/
-#curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
-#chmod 700 get_helm.sh
-#./get_helm.sh
 
 #Cert manager
 #kubectl apply -f https://raw.githubusercontent.com/jetstack/cert-manager/release-0.9/deploy/manifests/00-crds.yaml
