@@ -1,17 +1,31 @@
-# H1 Deploying highly available K8s cluster using RKE
+# Deploying highly available K8s cluster using RKE
 RKE is a useful tool that help with configuring K8s clusters. In this use case we will deploy a highly available K8s cluster using RKE.
 We will also use Terraform in order to deploy the required compute resources into AWS.
 
-# H2 The following infra diagram describes the resources that will be deployed
+## The following infra diagram describes the resources that will be deployed
 ![alt text](images/rke-aws.png)
 
-# H2 Services that will be installed on the ndoes
+## Services that will be installed on the ndoes
  - Docker
  - RKE
  - kubectl
  - Helm
 
-# H2 Post install
+## Use Terraform to deploy the infrastructure
+
+1. Install Terraform: [How to install Terraform](https://learn.hashicorp.com/terraform/getting-started/install.html) 
+
+2. Edit the Terraform provider information in order to deploy to AWS. You can use access keys, or you could configure the AWS CLI. Another option is to  use an IAM role.
+
+3. Run the following to initiate the terraform deployment
+
+```
+terraform init
+
+terraform apply
+```
+
+## Post install
 
 1. SSH into the master node using its public IP
 
