@@ -1,1 +1,1 @@
-Rancher deployment
+![alt text](images/rke-aws.png)

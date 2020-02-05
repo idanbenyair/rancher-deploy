@@ -28,8 +28,8 @@ resource "aws_launch_configuration" "rancher-launch-config" {
 }
 
 #Create autoscaling group
-resource "aws_autoscaling_group" "rancher-asg" {
-  name                      = "rancher-asg"
+resource "aws_autoscaling_group" "rancher-ha" {
+  name                      = "rancher-ha-cluster"
   max_size                  = 3
   min_size                  = 1
   health_check_grace_period = 100
@@ -49,13 +49,6 @@ resource "aws_autoscaling_group" "rancher-asg" {
 
 #Attach autoscaling group to elb
 resource "aws_autoscaling_attachment" "rancher-ha-elb-attach" {
-  autoscaling_group_name = "${aws_autoscaling_group.rancher-asg.id}"
+  autoscaling_group_name = "${aws_autoscaling_group.rancher-ha.id}"
   elb = "${module.rancher-elb.elb-name}"
 }
-
-#output "instance_private_ip_addresses" {
-#  value = {
-#    for instance in aws_autoscaling_group.rancher-ha:
-#    instance.id => instance.ip_address
-#  }
-#}

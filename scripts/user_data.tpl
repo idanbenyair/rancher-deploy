@@ -38,17 +38,14 @@ chmod 700 get_helm.sh
 cat  <<'EOF'> /home/ubuntu/rancher-cluster.yml
 nodes:
   - address: 1.1.1.1
-    internal_address: 2.2.2.2
     user: ubuntu
     role: [controlplane,etcd,worker]
     ssh_key_path: /home/ubuntu/rancher.pem
   - address: 3.3.3.3
-    internal_address: 4.4.4.4
     user: ubuntu
     role: [controlplane,etcd,worker]
     ssh_key_path: /home/ubuntu/rancher.pem
   - address: 5.5.5.5
-    internal_address: 6.6.6.6
     user: ubuntu
     role: [controlplane,etcd,worker]
     ssh_key_path: /home/ubuntu/rancher.pem
@@ -56,7 +53,7 @@ addon_job_timeout: 120
 EOF
 
 #RKE Up to build the cluster
-#sudo sudo rke up --config rancher-cluster.yml
+#sudo rke up --config rancher-cluster.yml
 
 #Cert manager
 #kubectl apply -f https://raw.githubusercontent.com/jetstack/cert-manager/release-0.9/deploy/manifests/00-crds.yaml
