@@ -45,7 +45,15 @@ After a few moments you will get a success output:
 
 ![alt text](images/success.png)
 
-4. Check that the cluster is running properly
+4. Create a symbolic link and export path to the kubeconfig
+
+```
+mkdir -p /home/ubuntu/.kube
+ln -s /home/ubuntu/kube_config_rancher-cluster.yml /home/ubuntu/.kube/config
+
+export KUBECONFIG=/home/ubuntu/kube_config_rancher-cluster.yml
+```
+5. Check that the cluster is running properly
 
 `kubectl get nodes`
 
