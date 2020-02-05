@@ -17,7 +17,7 @@ We will also use Terraform in order to deploy the required compute resources int
 
 2. Edit the `rancher-cluster.yml` and update the IP addresses of the nodes. Also, update the  path to your SSH private key ([How to create SSH key pairs](https://help.ubuntu.com/community/SSH/OpenSSH/Keys)) for authentication between the nodes.
 
-`
+```
 nodes:
   - address: <Node01 IP Address>
     user: ubuntu
@@ -32,7 +32,7 @@ nodes:
     role: [controlplane,etcd,worker]
     ssh_key_path: /path/to/privatekey.pem
 addon_job_timeout: 120
-`
+```
 
 3. Run the up command to initiate the creation of the cluster
 `rke up config rancher-cluster.yml`
@@ -46,6 +46,7 @@ After a few moments you will get a success output:
 ![alt text](images/success.png)
 
 4. Check that the cluster is running properly
+
 `kubectl get nodes`
 
 This should give you the running nodes in the cluster
